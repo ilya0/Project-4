@@ -8,7 +8,7 @@ I would like to create a website app which will show all the musician's statisti
 ### Resources
 
 * **[Trello](https://trello.com/b/sIEFnZgx/project-4)** Trello design board
-* **[ERD](/erd/IMG_8177.JPG)** Wireframe for the website
+* **[ERD](https://github.com/ilya0/Project-4/blob/master/ERD/IMG_8177.JPG)** Wireframe for the website
 
 
 
