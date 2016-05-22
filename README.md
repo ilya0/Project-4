@@ -5,6 +5,8 @@
 
 I would like to create a website app which will show all the musician's statistics all in one place.The musician should essentially be able to do what a manager or agent should be able to do. Artist should be able to upload music in one place and it should be able to pull into various different sites.
 
+Edit: I will just be creating a D3 dynamic interface fed by some sort of time driven API.
+
 ### Resources
 
 * **[Trello](https://trello.com/b/sIEFnZgx/project-4)** Trello design board
