@@ -1,64 +1,66 @@
-1. working on creating a button that pushes arrays sequentialy
+<!-- 1. working on creating a button that pushes arrays sequentialy
 2. connect the graphs to the sequential data arrays
 3. start a ajax request
 4. get the ajax to pull into the arrays
 5. addition functionality
+ -->
 <!DOCTYPE html>
 <meta charset="utf-8">
 
 
 <!-- this is the textline stuff -->
 <style>
-
-text {
-  font: bold 48px monospace;
-}
-.enter {
-  fill: green;
-}
-.update {
-  fill: #333;
-}
-
 </style>
 
 <body>
-<div>
-    <p></p>
 
-</div>
+  <div id ="textclouddiv">
+      <p></p>
+  </div>
 
+  <div>
+    <span id ="listvizdiv">list</span>
+  </div>
 
-<div>
-    <span class ="listspan">list</span>
-</div>
+  <div>
+   <span id = "pievizdiv"></span>
+  </div>
 
-<div id="buttondiv">
-    <input type="text" name="textinputbox" placeholder="This is an inputbox"></input>
+  <div id="buttondiv">
+    <input type="text" class="textinputbox" placeholder="This is an inputbox"></input>
     <button class="testbutton" type="click">Test button</button>
-</div>
+  </div>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+<!--   <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
+ -->  <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+  <script src="button_logic.js" type="text/javascript" charset="utf-8" async defer></script>
 
 
-  <!-- <script src="http://d3js.org/d3.v3.min.js"></script> -->
-  <!-- <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script> -->
-  <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
   <script>
 
 
 //************* write the data pushing from the inputbox
 /// to the arrays
 $(".testbutton").click(function(event){
-
+    inputboxval = $(".textinputbox").val()
     console.log("button clicked");
     console.log("data array full:" +dataArray[0]);
     dataArray.pop();
     console.log("dataarray popped:"+dataArray[0]);
+    console.log(inputboxval);
+    $('#listvizdiv').append('<p>'+inputboxval+'</p>');
 
 });
 
 
 
-var inputboxval = "";
+var $inputboxval = "";
+var listvizArray =[]; //data for the list visualization
+var cloudvizArray=[]; // data for the text cloud vix
+var pievizArray=[];   //data for the pie (thats not here yet)
+
 var dataArray =["test1thing"];
 var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 
