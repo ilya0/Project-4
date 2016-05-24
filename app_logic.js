@@ -25,7 +25,7 @@ var cloudvizArray=["cloudvizArray0 fine","cloudvizArray1 ok","cloudvizArray2 ok"
 var pievizArray=["pivevizArray"];   //data for the pie (thats not here yet)
 //var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 var alphabet = listvizArray; //making the alphabet array the input array
-
+var counter = 0;
 var svgText = d3.select("#listvizdiv").append("svgText")
     .attr("width", 960)
     .attr("height", 500)
@@ -163,7 +163,6 @@ function getWords() {
             .map(function(d) {
                 return {text: d, size: 10 + Math.random() * 60};
             })
-
 }
 
 
@@ -175,7 +174,9 @@ function showNewWords(vis, i) {
     i = i || 0;
 
     vis.update(getWords())
-     setTimeout(function() { showNewWords(vis, i + 1)}, 4000)  //this is the timer function to rerun the update
+     setTimeout(function() {
+     showNewWords(vis, i + 1)
+     }, 1000)  //this is the timer function to rerun the update
 }
 
 //Create a new instance of the word cloud visualisation.
