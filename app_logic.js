@@ -1,24 +1,26 @@
 // button_logic.js
 //************* write the data pushing from the inputbox
 /// to the arrays
+var words = [];
 $(".testbutton").click(function(event){
     inputboxval = $(".textinputbox").val()
-    console.log("button clicked");
-
-    console.log(inputboxval);
-    $('#buttondiv').append('<p>'+inputboxval+'</p>');
-    listvizArray.push(inputboxval);
-    console.log("vizarray is:" +listvizArray);
-    cloudvizArray = listvizArray;
-    console.log("cloud array is:" +cloudvizArray);
+    console.log("button clicked", inputboxval);
+    addtowords(inputboxval);
+    update(words);
 
 
 });
 
+function addtowords(word){
+  if(words.length === 5){
+    words.shift();
+  }
+  words.push(word);
+}
 
 
 var $inputboxval = "";
-var listvizArray =["listvizArray0","listvizArray1","listvizArray2"]; //data for the list visualization
+var listvizArray =words; //data for the list visualization
 var cloudvizArray=["cloudvizArray0 fine","cloudvizArray1 ok","cloudvizArray2 ok"]; // data for the text cloud vix
 var pievizArray=["pivevizArray"];   //data for the pie (thats not here yet)
 //var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
@@ -60,14 +62,13 @@ function update(data) {
 }
 
 // The initial display.
-update(alphabet);
 
 // Grab a random sample of letters from the alphabet, in alphabetical order.
-setInterval(function() {
-  update(d3.shuffle(alphabet)
-      .slice(0, Math.floor(Math.random() * 26))
-      .sort());
-}, 1500);
+// setInterval(function() {
+//   update(d3.shuffle(alphabet)
+//       .slice(0, Math.floor(Math.random() * 26))
+//       .sort());
+// }, 1500);
 
 
 
@@ -145,18 +146,18 @@ function wordCloud(selector) {
 }
 //****** original words
 //Some sample data - http://en.wikiquote.org/wiki/Opening_lines
-var words = [
-  "You don't know about me without you have read a book called The Adventures of Tom Sawyer but that ain't no matter.",
-  "The boy with fair hair lowered himself down the last few feet of rock and began to pick his way toward the lagoon.",
-  "When Mr. Bilbo Baggins of Bag End announced that he would shortly be celebrating his eleventy-first birthday with a party of special magnificence, there was much talk and excitement in Hobbiton.",
-  "It was inevitable: the scent of bitter almonds always reminded him of the fate of unrequited love."
-]
-
-var words = cloudvizArray
+// var words = [
+//   "You don't know about me without you have read a book called The Adventures of Tom Sawyer but that ain't no matter.",
+//   "The boy with fair hair lowered himself down the last few feet of rock and began to pick his way toward the lagoon.",
+//   "When Mr. Bilbo Baggins of Bag End announced that he would shortly be celebrating his eleventy-first birthday with a party of special magnificence, there was much talk and excitement in Hobbiton.",
+//   "It was inevitable: the scent of bitter almonds always reminded him of the fate of unrequited love."
+// ]
+// var words = cloudvizArray
 //Prepare one of the sample sentences by removing punctuation,
 // creating an array of words and computing a random size attribute.
 function getWords() {
-    return words[i]
+    return words
+            .join(' ')
             .replace(/[!\.,:;\?]/g, '')
             .split(' ')
             .map(function(d) {
@@ -173,7 +174,7 @@ function getWords() {
 function showNewWords(vis, i) {
     i = i || 0;
 
-    vis.update(getWords(i ++ % words.length))
+    vis.update(getWords())
      setTimeout(function() { showNewWords(vis, i + 1)}, 4000)  //this is the timer function to rerun the update
 }
 
