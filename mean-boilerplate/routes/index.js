@@ -7,8 +7,8 @@ module.exports = function(app, passport) {
     res.render('login');
   });
 
-  app.post('/login',
-    passport.authenticate('local', { failureRedirect: '/login' }),
+  app.post('/',
+    passport.authenticate('local', { failureRedirect: '/' }),
     function(req, res) {
       res.redirect('/');
   });

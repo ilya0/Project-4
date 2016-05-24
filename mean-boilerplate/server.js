@@ -12,6 +12,15 @@ var passport     = require('passport');
 var Strategy     = require('passport-local').Strategy;
 
 
+//adding twitter require
+var Twitter = require('twitter');
+
+// var client = new Twitter({
+//   consumer_key: 'LKsPm3hknJ16dRtkmPIFOHAyE',
+//   consumer_secret: '6Iss4wRsvhrgnnuciZ0C6NPBmOEuuNkTUWZAgAvleVCFHRqsn3',
+//   access_token_key: '271781845-45nzENYoguXsBAwTy3rghUFKHAxkKpHZDeUhAX41',
+//   access_token_secret: '8O6cJsBmj5xPwrDklwE5PkMabyQQgcaIX9FGKO6Bosvrb'
+// });
 
 var app = express();
 var config = yaml.load(path.join(__dirname, 'config/app.yaml'));
@@ -34,7 +43,7 @@ app.use(passport.session());
 
 require('./routes/index')(app, passport);
 
-var apiRoutes = ['users'];
+var apiRoutes = ['tweets'];
 
 apiRoutes.forEach(function(route) {
   app.use( '/api/' + route, require('./routes/' + route)( express.Router() ) );
