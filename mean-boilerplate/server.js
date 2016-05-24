@@ -11,6 +11,8 @@ var yaml         = require('node-yaml-config');
 var passport     = require('passport');
 var Strategy     = require('passport-local').Strategy;
 
+
+
 var app = express();
 var config = yaml.load(path.join(__dirname, 'config/app.yaml'));
 
