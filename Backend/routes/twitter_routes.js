@@ -25,19 +25,18 @@ router.get('/getsearch', function(req,res){
   T.get('search/tweets', { q: '#nowplaying since:2015-05-23', count: 1 }, function(err, data, response) {
   console.log("data is being got *********************************")
   console.log(data);
- // response.send(data);
-
+  res.json({data});
+ // response.send(data);h
   });
-  res.json(res);
 });
 
 
 
 
 router.get('/posthello', function(req,res){
-T.post('statuses/update', { status: 'hello world!' }, function(err, data, response) {
-  console.log("hello world")
-})
+  T.post('statuses/update', { status: 'hello world!' }, function(err, data, response) {
+    console.log("hello world")
+  })
 });
 
 
