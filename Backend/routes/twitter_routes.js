@@ -14,18 +14,22 @@ var T = new Twit({
 
 
 router.get('/', function(req,res){
-  res.json({message:'much connect!'});
+  res.json({message:'back end operational'});
 });
 
 
-
+var tweetarray=[];
 // api/getsearch to get all the searches for the thing
 router.get('/getsearch', function(req,res){
 
-  T.get('search/tweets', { q: '#nowplaying since:2015-05-23', count: 1 }, function(err, data, response) {
+  T.get('search/tweets', { q: '#nowplaying since:2015-05-23', count: 10 }, function(err, data, response) {
   console.log("data is being got *********************************")
   console.log(data);
-  res.json({data});
+for(var i=0; i<data.statuses.length;i++){
+  tweetarray.push(data.statuses[i].text);
+}
+
+  res.json(tweetarray);
  // response.send(data);h
   });
 });
