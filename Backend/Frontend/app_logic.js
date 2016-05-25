@@ -38,13 +38,13 @@ function addtowords(word){
         });
 
 //fullauto mode pulling from api
-          $(".fullAuto").click(function(){
-        $.ajax({
-          type: "GET",
-          crossDomain: false,
-          url: "/api/getsearch",
+  $(".fullAuto").click(function(){
+    $.ajax({
+      type: "GET",
+      crossDomain: false,
+      url: "/api/getsearch",
            //context: document.body
-          }).done(function(data){
+      }).done(function(data){
               givemedata = data;
               pulledajaxdata = data;
               console.log("ajax data is:");
@@ -54,15 +54,15 @@ function addtowords(word){
            });
 
 
-var i =-1;
-setInterval(function(){
-i++;
-console.log(i);
-var currentword = pulledajaxdata[i];
-  addtowords(currentword);
-    update(words);
-    console.log("current word" +currentword);
-}, 3000);
+        var i =-1;
+        setInterval(function(){
+        i++;
+        console.log(i);
+        var currentword = pulledajaxdata[i];
+          addtowords(currentword);
+            update(words);
+            console.log("current word" +currentword);
+        }, 3000);
 
         });
 
@@ -77,6 +77,12 @@ var pievizArray=["pivevizArray"];   //data for the pie (thats not here yet)
 //var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 var alphabet = listvizArray; //making the alphabet array the input array
 var counter = 0;
+
+
+
+
+
+
 var svgText = d3.select("#listvizdiv").append("svgText")
     .attr("width", 960)
     .attr("height", 500)

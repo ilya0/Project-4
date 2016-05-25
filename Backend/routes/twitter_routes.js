@@ -22,12 +22,22 @@ var tweetarray=[];
 // api/getsearch to get all the searches for the thing
 router.get('/getsearch', function(req,res){
 
-  T.get('search/tweets', { q: '#nowplaying since:2015-05-23', count: 10 }, function(err, data, response) {
+  T.get('search/tweets', { q: '#nowplaying since:2015-05-23', count: 100 }, function(err, data, response) {
   console.log("data is being got *********************************")
   console.log(data);
+
+  //get the text from the data.statuses
 for(var i=0; i<data.statuses.length;i++){
+  //need to take the stuff out based on
+// seperators - de by
+// end points ♫
   tweetarray.push(data.statuses[i].text);
 }
+// for(var i=0; i<data.statuses.length;i++){
+//   if(tweetarray[i]==="RT"){
+
+//   }
+// }
 
   res.json(tweetarray);
  // response.send(data);h
