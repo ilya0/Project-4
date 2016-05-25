@@ -16,7 +16,7 @@ var T = new Twit({
 })
 
 var tweetarray=[]; // this is where all the tweets get pushed to then cleaned up
-
+var keeparray =[];
 
 //****welcome text to / root
 router.get('/', function(req,res){
@@ -47,68 +47,98 @@ router.get('/getsearch', function(req,res){
 
 
 
-   for(var i=0; i<tweetarray.length; i++){ //remove all RT from array
-     // "RT @ElectMusicCafe: #NowPlaying #SMASHDAT by BEAT RANGER on the #EMC #Radio Network https://t.co/rt2CSwuM7L #EDM @beat_ranger_EDM"
-     // should be removed
-
-       console.log("Remove all RT being run RTRTRTRTRTRTTR");
-      if (tweetarray[i].charAt(0) === "R" || tweetarray[i].charAt(0) === "R" && tweetarray[i].charAt(1) === "T"|| tweetarray[i].charAt(1) === "T"){
-      console.log(tweetarray[i]+" removed*** ");
-      console.log("rt position:"+i)
-      tweetarray.splice(i,0);
-      }
-
-    }
-
-
-
-     for(var i=0; i<tweetarray.length; i++){ //remove all if no https://t.co/ from array
-
-       console.log("Remove all linked start hashtags being run LINKLINKLINK");
-      // https://t.co/
-      if (tweetarray[i].search("https://t.co/") != -1){
-      console.log(tweetarray[i]+" removed*** ");
-      tweetarray.splice(i,0);
-      }
-
-    }
-    //  for(var i=0; i<tweetarray.length; i++){ //remove all if no ♫ from array
-
-
-    //    console.log("Remove all non-♫ being run ♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫");
-    //   // https://t.co/
-    //   if (tweetarray[i].search("♫") != -1 || tweetarray[i].search(" ♫") != -1 ||tweetarray[i].search("♫ ") != -1 || ){
-    //   console.log(tweetarray[i]+" removed*** ");
-    //   tweetarray.splice(i,0);
-    //   }
-
-    // }
 
      for(var i=0; i<tweetarray.length; i++){ //remove all RT from array
      // "RT @ElectMusicCafe: #NowPlaying #SMASHDAT by BEAT RANGER on the #EMC #Radio Network https://t.co/rt2CSwuM7L #EDM @beat_ranger_EDM"
      // should be removed
 
-       console.log("Remove all non-hash start hashtags being run ##########");
-      if (tweetarray[i].charAt(0) != "#"){
-      console.log(tweetarray[i]+" removed*** ");
-      tweetarray.splice(i,0);
+       console.log("####### Remove all non-hash start hashtags being run ##########");
+
+        console.log(" test first char is:"+tweetarray[i].charAt(0));
+        console.log(" test Second char is:"+tweetarray[i].charAt(1));
+        console.log ( "Going into non-hash remove:" +tweetarray[i]);
+
+      if (tweetarray[i].charAt(0) === "#" && tweetarray[i].charAt(1)=== "N"){
+        console.log("first char is:"+tweetarray[i].charAt(0));
+        console.log("Second char is:"+tweetarray[i].charAt(1));
+
+        console.log(tweetarray[i]+" pushed to keeparray*** ");
+        console.log("00000000 item finished 000000000");
+        keeparray.push(tweetarray[i]);
+
       }
 
     }
+      tweetarray = keeparray; // put back all the values
+
+
+keeparray =[];
+     for(var i=0; i<tweetarray.length; i++){ //remove all if no ♫ from array
+       console.log("Remove all non-♫ being run ♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫");
+      // https://t.co/
+      if (tweetarray[i].search("♫") != -1  ){   //value of "6"= has ♫" so push it
+      console.log(tweetarray[i]+" removed*** ");
+      keeparray.push(tweetarray[i]);
+      }
+
+    }
+tweetarray = keeparray;
 
 
 
 
 
-   for(var i=0; i<tweetarray.length; i++){ //check for both tidal and spotify, remove all regular tweets
+//   keeparray =[];
+//      for(var i=0; i<tweetarray.length; i++){ //remove all if no https://t.co/ from array
 
-   }
-    for(var i=0; i<tweetarray.length; i++){ //format tital entries to just have artist
-   }
-    for(var i=0; i<tweetarray.length; i++){ // format spotify entries to just have artists
-}
+//            console.log("Remove all non-links being run LINKLINKLINK"); // https://t.co/
+//           if (tweetarray[i].search("https://t.co/") != -1){
+//           console.log(tweetarray[i]+" removed*** ");
+//            keeparray.push(tweetarray[i]);
+//           }
+//     }
+// tweetarray = keeparray;
+
+
+
+
+
+
+
+
+// var tidalorhifi = []; //push array when spliting tidal or spotify
+// var transfervar  = ""; //transfer var of string when changing to artist name
+//    for(var i=0; i<tweetarray.length; i++){ //check for both tidal and spotify, remove all regular tweets
+
+//     if (tweetarray[i].search("@TIDALHiFi") != -1){ /// if the string contains @tidalhifi search and it will give back the position of the @tidal
+//         transfervar = tweetarray[i];
+//         var startpos = tweetarray[i].search("by")+2;
+//         var endpos = tweetarray[i].search("@TIDALHiFi")-13;
+
+//       //do this thing to convert the name of the artist to that positiosn
+// }}
+
+
+
+//       // console.log(tweetarray[i]+" removed*** ");
+//       // tweetarray.splice(i,1);
+//       // }else if(tweetarray[i].search("♫") != -1 ) //♫ means its a spotify share
+//       // //find by
+//       // //take the string section
+
+
+
+
+//    }
+//     for(var i=0; i<tweetarray.length; i++){ //format tital entries to just have artist
+//    }
+//     for(var i=0; i<tweetarray.length; i++){ // format spotify entries to just have artists
+// }
+
+
+
   res.json(tweetarray); //send out the array as data to the frontend
-console.log(tweetarray)
+  console.log(tweetarray)
   });
  //}); //put this back after test are done
 
@@ -119,6 +149,10 @@ router.get('/posthello', function(req,res){
   T.post('statuses/update', { status: 'hello world!' }, function(err, data, response) {
     console.log("hello world")
   })
+
+
+
+
 });
 
 
