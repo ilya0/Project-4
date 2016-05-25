@@ -76,9 +76,12 @@ keeparray =[];
      for(var i=0; i<tweetarray.length; i++){ //remove all if no ♫ from array
        console.log("Remove all non-♫ being run ♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫");
       // https://t.co/
-      if (tweetarray[i].search("♫") != -1  ){   //value of "6"= has ♫" so push it
-      console.log(tweetarray[i]+" removed*** ");
+      if (tweetarray[i].search("♫") != -1){   //value of "6"= has ♫" so push it
+      console.log(tweetarray[i]+"        ****pushed*** ");
       keeparray.push(tweetarray[i]);
+      }else{
+      console.log(tweetarray[i]+"        ****notpushed*** ");
+
       }
 
     }
@@ -88,43 +91,40 @@ tweetarray = keeparray;
 
 
 
-//   keeparray =[];
-//      for(var i=0; i<tweetarray.length; i++){ //remove all if no https://t.co/ from array
+  keeparray =[];
+     for(var i=0; i<tweetarray.length; i++){ //remove all if no https://t.co/ from array
 
-//            console.log("Remove all non-links being run LINKLINKLINK"); // https://t.co/
-//           if (tweetarray[i].search("https://t.co/") != -1){
-//           console.log(tweetarray[i]+" removed*** ");
-//            keeparray.push(tweetarray[i]);
-//           }
-//     }
-// tweetarray = keeparray;
-
-
+           console.log("Remove all non-links being run LINKLINKLINK"); // https://t.co/
+          if (tweetarray[i].search("https://t.co/") != -1){
+          console.log(tweetarray[i]+" removed*** ");
+           keeparray.push(tweetarray[i]);
+          }
+    }
+tweetarray = keeparray;
 
 
 
 
 
+var tidalorhifi = []; //push array when spliting tidal or spotify
+var transfervar  = ""; //transfer var of string when changing to artist name
+   for(var i=0; i<tweetarray.length; i++){ //check for both tidal and spotify, remove all regular tweets
 
-// var tidalorhifi = []; //push array when spliting tidal or spotify
-// var transfervar  = ""; //transfer var of string when changing to artist name
-//    for(var i=0; i<tweetarray.length; i++){ //check for both tidal and spotify, remove all regular tweets
+    if (tweetarray[i].search("@TIDALHiFi") != -1){ /// if the string contains @tidalhifi search and it will give back the position of the @tidal
+        transfervar = tweetarray[i];
+        var startpos = tweetarray[i].search("by")+2;
+        var endpos = tweetarray[i].search("@TIDALHiFi")-13;
 
-//     if (tweetarray[i].search("@TIDALHiFi") != -1){ /// if the string contains @tidalhifi search and it will give back the position of the @tidal
-//         transfervar = tweetarray[i];
-//         var startpos = tweetarray[i].search("by")+2;
-//         var endpos = tweetarray[i].search("@TIDALHiFi")-13;
-
-//       //do this thing to convert the name of the artist to that positiosn
-// }}
-
+      //do this thing to convert the name of the artist to that positiosn
+}}
 
 
-//       // console.log(tweetarray[i]+" removed*** ");
-//       // tweetarray.splice(i,1);
-//       // }else if(tweetarray[i].search("♫") != -1 ) //♫ means its a spotify share
-//       // //find by
-//       // //take the string section
+
+      // console.log(tweetarray[i]+" removed*** ");
+      // tweetarray.splice(i,1);
+      // }else if(tweetarray[i].search("♫") != -1 ) //♫ means its a spotify share
+      // //find by
+      // //take the string section
 
 
 
