@@ -106,18 +106,33 @@ tweetarray = keeparray;
 
 
 
-var tidalorhifi = []; //push array when spliting tidal or spotify
-var transfervar  = ""; //transfer var of string when changing to artist name
+
+  keeparray =[];
+  var startpos =0;
+  var endpos =0
    for(var i=0; i<tweetarray.length; i++){ //check for both tidal and spotify, remove all regular tweets
 
-    if (tweetarray[i].search("@TIDALHiFi") != -1){ /// if the string contains @tidalhifi search and it will give back the position of the @tidal
-        transfervar = tweetarray[i];
-        var startpos = tweetarray[i].search("by")+2;
-        var endpos = tweetarray[i].search("@TIDALHiFi")-13;
 
-      //do this thing to convert the name of the artist to that positiosn
-}}
+          // seperators: de, by, von,
+          //find the start pos
+       if (tweetarray[i].search("by") != -1){
+         startpos = tweetarray[i].search("by")+3;
+         console.log("by position: "+startpos)
+       }else if (tweetarray[i].search("de") != -1){
+         startpos = tweetarray[i].search("de")+3;
+         console.log("de position: "+startpos)
+       }else if (tweetarray[i].search("von") != -1){
+         startpos = tweetarray[i].search("von")+3;
+         console.log("von position: "+startpos)
+       }
 
+        //find the end pos
+      var endpos = tweetarray[i].search("♫")-1;
+      console.log("♫ position" +tweetarray[i].slice(startpos,endpos));
+      keeparray.push(tweetarray[i].slice(startpos,endpos));
+
+}
+tweetarray = keeparray;
 
 
       // console.log(tweetarray[i]+" removed*** ");
