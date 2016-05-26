@@ -13,6 +13,7 @@ app.get('/',function(req,res){
   // append 'Frontend/index_init_1.html' to it
   res.sendFile(path.join(__dirname, 'Frontend/index_init_1.html'));
 });
+
 app.use('/api', twitterRoutes);
 
 

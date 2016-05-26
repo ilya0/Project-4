@@ -96,7 +96,9 @@ var counter = 0;
 
 
 
+  textboxcolor = d3.rgb("#ffffff");
 
+d3.select("svgText").style("background-color",textboxcolor)
 
 var svgText = d3.select("#listvizdiv").append("svgText")
     .attr("width", 960)
@@ -150,7 +152,8 @@ function update(data) {
 
 // Encapsulate the word cloud functionality
 function wordCloud(selector) {
-
+  cloudbackcolor = d3.rgb("#ff0000");
+d3.select(selector).style("background-color", cloudbackcolor)
     var fill = d3.scale.category20();
 
     //Construct the word cloud's SVG element

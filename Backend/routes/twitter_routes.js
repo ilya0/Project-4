@@ -8,15 +8,51 @@ var testarray =
 
 
 var T = new Twit({
-  consumer_key:         'LKsPm3hknJ16dRtkmPIFOHAyE',
-  consumer_secret:      '6Iss4wRsvhrgnnuciZ0C6NPBmOEuuNkTUWZAgAvleVCFHRqsn3',
-  access_token:         '271781845-45nzENYoguXsBAwTy3rghUFKHAxkKpHZDeUhAX41',
-  access_token_secret:  '8O6cJsBmj5xPwrDklwE5PkMabyQQgcaIX9FGKO6Bosvrb',
+  consumer_key:         process.env.CONSUMER_KEY,
+  consumer_secret:      process.env.CONSUMER_SECRET,
+  access_token:         process.env.ACCESS_TOKEN,
+  access_token_secret:  process.env.ACCESS_TOKEN_SECRET,
   timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
 })
 
 var tweetarray = []; // this is where all the tweets get pushed to then cleaned up
 var keeparray  = []; // this where the stuff gets swapped into and changed
+
+//RegExp
+// var pattern  = RegExp("#NowPlaying (\w+) by (\w+)")
+// undefined
+// pattern.text("NowPlaying")
+// VM869:1 Uncaught TypeError: pattern.text is not a function(…)(anonymous function) @ VM869:1InjectedScript._evaluateOn @ VM107:145InjectedScript._evaluateAndWrap @ VM107:137InjectedScript.evaluate @ VM107:118
+// pattern.test("NowPlaying")
+// false
+// var tweet = "#NowPlaying Playback by Collie Buddz ♫"
+// undefined
+// pattern.test(tweet)
+// false
+// var pattern  = RegExp("#NowPlaying (\.+) by (\.+)")
+// undefined
+// pattern.test(tweet)
+// true
+// tweet.match(pattern)
+// ["#NowPlaying Playback by Collie Buddz ♫", "Playback", "Collie Buddz ♫"]
+
+
+// var tweet = "RT @ElectMusicCafe: #NowPlaying #SMASHDAT by BEAT RANGER on the #EMC #Radio Network https://t.co/rt2CSwuM7L #EDM @beat_ranger_EDM"
+// undefined
+// var nowPlayingPattern = new RegExp("#NowPlaying (\.+) by (\.+)")
+// undefined
+// tweet.match(nowPlayingPattern)
+// ["#NowPlaying #SMASHDAT by BEAT RANGER on the #EMC #Radio Network https://t.co/rt2CSwuM7L #EDM @beat_ranger_EDM", "#SMASHDAT", "BEAT RANGER on the #EMC #Radio Network https://t.co/rt2CSwuM7L #EDM @beat_ranger_EDM"]
+// var onTheCheck = new RegExp("on the (\.+)")
+// undefined
+// tweet.replace(onTheCheck)
+// "RT @ElectMusicCafe: #NowPlaying #SMASHDAT by BEAT RANGER undefined"
+// tweet.replace(onTheCheck, "")
+// "RT @ElectMusicCafe: #NowPlaying #SMASHDAT by BEAT RANGER "
+
+
+
+
 
 //****welcome text to / root
 router.get('/', function(req,res){
@@ -26,11 +62,10 @@ router.get('/', function(req,res){
 
 // get search route will show all the data in a json
 // api/getsearch to get all the searches for the thing
-router.get('/getsearch', function(req,res){
-
+router.get('/getsearch', function(req,res) {
 
   //&&&&&put this back after the test are done
-   T.get('search/tweets', { q: '#nowplaying since:2015-05-23', count: 100 }, function(err, data, response) {
+  T.get('search/tweets', { q: '#nowplaying since:2015-05-23', count: 100 }, function(err, data, response) {
     // return res.json(data)
 
     console.log("data is being got *********************************");
@@ -43,135 +78,88 @@ router.get('/getsearch', function(req,res){
 
 
       //push the  the text from the data.statuses
-   for(var i=0; i<data.statuses.length;i++){
+    for(var i=0; i<data.statuses.length;i++){
       tweetarray.push(data.statuses[i].text); // push the text from the item into the array set
-   }
+    }
 
 
-     for(var i=0; i<tweetarray.length; i++){ //remove all RT from array
-     // "RT @ElectMusicCafe: #NowPlaying #SMASHDAT by BEAT RANGER on the #EMC #Radio Network https://t.co/rt2CSwuM7L #EDM @beat_ranger_EDM"
-     // should be removed
+    for(var i=0; i<tweetarray.length; i++){ //remove all RT from array
+      // "RT @ElectMusicCafe: #NowPlaying #SMASHDAT by BEAT RANGER on the #EMC #Radio Network https://t.co/rt2CSwuM7L #EDM @beat_ranger_EDM"
+      // should be removed
 
-        console.log("####### Remove all non-hash start hashtags being run ##########");
-        console.log(" test first char is:"+tweetarray[i].charAt(0));
-        console.log(" test Second char is:"+tweetarray[i].charAt(1));
-        console.log ( "Going into non-hash remove:" +tweetarray[i]);
-//if RT in the first char then dont push, if not push to keeparray
+      console.log("####### Remove all non-hash start hashtags being run ##########");
+      console.log(" test first char is:"+tweetarray[i].charAt(0));
+      console.log(" test Second char is:"+tweetarray[i].charAt(1));
+      console.log ( "Going into non-hash remove:" +tweetarray[i]);
+      //if RT in the first char then dont push, if not push to keeparray
 
 
-        if (tweetarray[i].charAt(0) === "#" && tweetarray[i].charAt(1)=== "N"){
-          console.log("first char is:"+tweetarray[i].charAt(0));
-          console.log("Second char is:"+tweetarray[i].charAt(1));
-
-          console.log(tweetarray[i]+" pushed to keeparray*** ");
-          console.log("00000000 item finished 000000000");
-          keeparray.push(tweetarray[i]);
-
-        }
+      if (tweetarray[i].charAt(0) === "#" && tweetarray[i].charAt(1)=== "N"){
+        console.log("first char is:"+tweetarray[i].charAt(0));
+        console.log("Second char is:"+tweetarray[i].charAt(1));
+        console.log(tweetarray[i]+" pushed to keeparray*** ");
+        console.log("00000000 item finished 000000000");
+        keeparray.push(tweetarray[i]);
       }
-  tweetarray = keeparray; // put back all the values
+    }
 
-
-
-
-
-keeparray =[];
-     for(var i=0; i<tweetarray.length; i++){ //remove all if no ♫ from array
-       console.log("Remove all non-♫ being run ♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫");
+    tweetarray = keeparray; // put back all the values
+    keeparray =[];
+    for(var i=0; i<tweetarray.length; i++){ //remove all if no ♫ from array
+      console.log("Remove all non-♫ being run ♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫♫");
       // https://t.co/
       if (tweetarray[i].search("♫") != -1){   //value of "6"= has ♫" so push it
-      console.log(tweetarray[i]+"        ****pushed*** ");
-      keeparray.push(tweetarray[i]);
-      }else{
-      console.log(tweetarray[i]+"        ****notpushed*** ");
-
+        console.log(tweetarray[i]+"        ****pushed*** ");
+        keeparray.push(tweetarray[i]);
+      } else {
+        console.log(tweetarray[i]+"        ****notpushed*** ");
       }
     }
-tweetarray = keeparray;
+    tweetarray = keeparray;
 
+    //remove all links
 
-///remove non letters except for the ♫
-
-// keeparray =[];
-//      for(var i=0; i<tweetarray.length; i++){ //remove all if no ♫ from array
-//        console.log("Remove all non-letters");
-
-
-
-//       if (tweetarray[i].search("♫") != -1){   //value of "6"= has ♫" so push it
-
-//       console.log(tweetarray[i]+"        ****pushed*** ");
-//       keeparray.push(tweetarray[i]);
-//       }else{
-//       console.log(tweetarray[i]+"        ****notpushed*** ");
-
-//       }
-
-//     }
-// tweetarray = keeparray;
-
-
-
-
-
-
-
-
-
-//remove all links
-
-
-  keeparray =[];
-     for(var i=0; i<tweetarray.length; i++){ //remove all if no https://t.co/ from array
-
-           console.log("Remove all non-links being run LINKLINKLINK"); // https://t.co/
-          if (tweetarray[i].search("https://t.co/") != -1){
-          console.log(tweetarray[i]+" removed*** ");
-           keeparray.push(tweetarray[i]);
-          }
+  keeparray = [];
+  for(var i=0; i<tweetarray.length; i++){ //remove all if no https://t.co/ from array
+    console.log("Remove all non-links being run LINKLINKLINK"); // https://t.co/
+    if (tweetarray[i].search("https://t.co/") != -1){
+      console.log(tweetarray[i]+" removed*** ");
+      keeparray.push(tweetarray[i]);
     }
-tweetarray = keeparray;
-
-
-
-//pull artist name
-
-
-  keeparray =[];
-  var startpos =0;
-  var endpos =0;
-   for(var i=0; i<tweetarray.length; i++){ //check for both tidal and spotify, remove all regular tweets
-
-
-          // seperators: de, by, von,
-          //find the start pos
-       if (tweetarray[i].search("by") != -1){
-         startpos = tweetarray[i].search("by")+3;
-         console.log("by position: "+startpos)
-       }else if (tweetarray[i].search("de") != -1){
-         startpos = tweetarray[i].search("de")+3;
-         console.log("de position: "+startpos)
-       }else if (tweetarray[i].search("von") != -1){
-         startpos = tweetarray[i].search("von")+3;
-         console.log("von position: "+startpos)
-       }
-
-        //find the end pos
-      var endpos = tweetarray[i].search("♫")-1;
-      console.log("♫ position" +tweetarray[i].slice(startpos,endpos));
-      keeparray.push(tweetarray[i].slice(startpos,endpos));
-
-   }
+  }
   tweetarray = keeparray;
 
+  //pull artist name
+  keeparray = [];
+  var startpos =0;
+  var endpos =0;
+  for(var i=0; i<tweetarray.length; i++){ //check for both tidal and spotify, remove all regular tweets
+      // seperators: de, by, von,
+      //find the start pos
+    if (tweetarray[i].search("by") != -1){
+      startpos = tweetarray[i].search("by")+3;
+      console.log("by position: "+startpos)
+    } else if (tweetarray[i].search("de") != -1){
+      startpos = tweetarray[i].search("de")+3;
+      console.log("de position: "+startpos)
+    } else if (tweetarray[i].search("von") != -1){
+      startpos = tweetarray[i].search("von")+3;
+      console.log("von position: "+startpos)
+    }
+    //find the end pos
+    var endpos = tweetarray[i].search("♫")-1;
+    console.log("♫ position" +tweetarray[i].slice(startpos,endpos));
+    keeparray.push(tweetarray[i].slice(startpos,endpos));
+  }
+  tweetarray = keeparray;
 
 ///send final tweetarray
 
-data = tweetarray
-  res.json(data); //send out the array as data to the frontend
-  console.log(tweetarray)
+  data = tweetarray
+    res.json(data); //send out the array as data to the frontend
+    console.log(tweetarray)
   });
- }); //put this back after test are done
+}); //put this back after test are done
 
 
 
