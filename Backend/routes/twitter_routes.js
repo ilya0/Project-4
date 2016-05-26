@@ -15,8 +15,8 @@ var T = new Twit({
   timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
 })
 
-var tweetarray=[]; // this is where all the tweets get pushed to then cleaned up
-var keeparray =[];
+var tweetarray = []; // this is where all the tweets get pushed to then cleaned up
+var keeparray  = []; // this where the stuff gets swapped into and changed
 
 //****welcome text to / root
 router.get('/', function(req,res){
@@ -30,46 +30,49 @@ router.get('/getsearch', function(req,res){
 
 
   //&&&&&put this back after the test are done
-  // T.get('search/tweets', { q: '#nowplaying since:2015-05-23', count: 100 }, function(err, data, response) {
+  // T.get('search/tweets', { q: '#nowplaying since:2015-05-23', count: 3 }, function(err, data, response) {
+    // return res.json(data)
+
     console.log("data is being got *********************************");
 
     ///&&&&test array put turn this off after tests are done
     data = testarray;
-    //console.log(data);
+    console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+    console.log(data.statuses);
+    console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
 
 
-
-      //get the text from the data.statuses
+      //push the  the text from the data.statuses
    for(var i=0; i<data.statuses.length;i++){
       tweetarray.push(data.statuses[i].text); // push the text from the item into the array set
    }
-
-
-
 
 
      for(var i=0; i<tweetarray.length; i++){ //remove all RT from array
      // "RT @ElectMusicCafe: #NowPlaying #SMASHDAT by BEAT RANGER on the #EMC #Radio Network https://t.co/rt2CSwuM7L #EDM @beat_ranger_EDM"
      // should be removed
 
-       console.log("####### Remove all non-hash start hashtags being run ##########");
-
+        console.log("####### Remove all non-hash start hashtags being run ##########");
         console.log(" test first char is:"+tweetarray[i].charAt(0));
         console.log(" test Second char is:"+tweetarray[i].charAt(1));
         console.log ( "Going into non-hash remove:" +tweetarray[i]);
+//if RT in the first char then dont push, if not push to keeparray
 
-      if (tweetarray[i].charAt(0) === "#" && tweetarray[i].charAt(1)=== "N"){
-        console.log("first char is:"+tweetarray[i].charAt(0));
-        console.log("Second char is:"+tweetarray[i].charAt(1));
 
-        console.log(tweetarray[i]+" pushed to keeparray*** ");
-        console.log("00000000 item finished 000000000");
-        keeparray.push(tweetarray[i]);
+        if (tweetarray[i].charAt(0) === "#" && tweetarray[i].charAt(1)=== "N"){
+          console.log("first char is:"+tweetarray[i].charAt(0));
+          console.log("Second char is:"+tweetarray[i].charAt(1));
 
+          console.log(tweetarray[i]+" pushed to keeparray*** ");
+          console.log("00000000 item finished 000000000");
+          keeparray.push(tweetarray[i]);
+
+        }
       }
+  tweetarray = keeparray; // put back all the values
 
-    }
-      tweetarray = keeparray; // put back all the values
+
+
 
 
 keeparray =[];
@@ -83,12 +86,39 @@ keeparray =[];
       console.log(tweetarray[i]+"        ****notpushed*** ");
 
       }
-
     }
 tweetarray = keeparray;
 
 
+///remove non letters except for the ♫
 
+// keeparray =[];
+//      for(var i=0; i<tweetarray.length; i++){ //remove all if no ♫ from array
+//        console.log("Remove all non-letters");
+
+
+
+//       if (tweetarray[i].search("♫") != -1){   //value of "6"= has ♫" so push it
+
+//       console.log(tweetarray[i]+"        ****pushed*** ");
+//       keeparray.push(tweetarray[i]);
+//       }else{
+//       console.log(tweetarray[i]+"        ****notpushed*** ");
+
+//       }
+
+//     }
+// tweetarray = keeparray;
+
+
+
+
+
+
+
+
+
+//remove all links
 
 
   keeparray =[];
@@ -104,12 +134,12 @@ tweetarray = keeparray;
 
 
 
-
+//pull artist name
 
 
   keeparray =[];
   var startpos =0;
-  var endpos =0
+  var endpos =0;
    for(var i=0; i<tweetarray.length; i++){ //check for both tidal and spotify, remove all regular tweets
 
 
@@ -131,64 +161,28 @@ tweetarray = keeparray;
       console.log("♫ position" +tweetarray[i].slice(startpos,endpos));
       keeparray.push(tweetarray[i].slice(startpos,endpos));
 
-}
-tweetarray = keeparray;
+   }
+  tweetarray = keeparray;
 
 
-      // console.log(tweetarray[i]+" removed*** ");
-      // tweetarray.splice(i,1);
-      // }else if(tweetarray[i].search("♫") != -1 ) //♫ means its a spotify share
-      // //find by
-      // //take the string section
+///send final tweetarray
 
-
-
-
-//    }
-//     for(var i=0; i<tweetarray.length; i++){ //format tital entries to just have artist
-//    }
-//     for(var i=0; i<tweetarray.length; i++){ // format spotify entries to just have artists
-// }
-
-
-
-  res.json(tweetarray); //send out the array as data to the frontend
+data = tweetarray
+  res.json(data); //send out the array as data to the frontend
   console.log(tweetarray)
   });
  //}); //put this back after test are done
 
 
 
+//post hello to profile route
 
 router.get('/posthello', function(req,res){
   T.post('statuses/update', { status: 'hello world!' }, function(err, data, response) {
     console.log("hello world")
   })
 
-
-
-
 });
-
-
-
-
-// T.get('search/tweets', { q: 'banana since:2011-07-11', count: 100 }, function(err, data, response) {
-//   console.log(data)
-// });/// this is working, need to subsitute the data search and also find how to put the data in an array
-
-// T.get('search/tweets', { q: '#nowplaying since:2015-05-23', count: 1 }, function(err, data, response) {
-//   console.log("data is being got *********************************")
-// console.log(data);
-// });
-
-// T.post('statuses/update', { status: 'hello world!' }, function(err, data, response) {
-//   console.log("hello world")
-// })
-
-
-
-
 
 
 module.exports = router;
