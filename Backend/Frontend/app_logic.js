@@ -58,17 +58,30 @@ function runFullprogram(){
            });
 
 
+
         var i =-1;
-        setInterval(function(){
+
+var runinterval = setInterval(function(){
+  if(pulledajaxdata.length != i-1){
         i++;
         console.log(i);
         var currentword = pulledajaxdata[i];
           addtowords(currentword);
             update(words);
-            console.log("current word" +currentword);
+            console.log("current word " +currentword);
+            console.log("index of pulledajaxdata "+i);
+          }else{clearInterval(runinterval)
+          }
         }, 3000);
 
     }
+
+// var myInterval = setInterval(function () {
+//     alert(1);
+//     clearInterval(myInterval);
+// }, 2000);
+
+
 
 
 
