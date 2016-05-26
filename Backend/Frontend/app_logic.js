@@ -38,7 +38,10 @@ function addtowords(word){
         });
 
 //fullauto mode pulling from api
-  $(".fullAuto").click(function(){
+  $(".fullAuto").click(runFullprogram); // runFullprogram is taken out because  .click needs to be reinstatiated
+//function to run the full program,
+function runFullprogram(){
+    $(this).off(); //turn off event listener
     $.ajax({
       type: "GET",
       crossDomain: false,
@@ -51,6 +54,7 @@ function addtowords(word){
               console.log(pulledajaxdata);
               console.log("data is:");
               console.log(data);
+              $(this).click(runFullprogram);
            });
 
 
@@ -64,9 +68,7 @@ function addtowords(word){
             console.log("current word" +currentword);
         }, 3000);
 
-        });
-
-
+    }
 
 
 

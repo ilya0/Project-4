@@ -30,13 +30,13 @@ router.get('/getsearch', function(req,res){
 
 
   //&&&&&put this back after the test are done
-  // T.get('search/tweets', { q: '#nowplaying since:2015-05-23', count: 3 }, function(err, data, response) {
+   T.get('search/tweets', { q: '#nowplaying since:2015-05-23', count: 100 }, function(err, data, response) {
     // return res.json(data)
 
     console.log("data is being got *********************************");
 
     ///&&&&test array put turn this off after tests are done
-    data = testarray;
+    //data = testarray;
     console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
     console.log(data.statuses);
     console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
@@ -171,7 +171,7 @@ data = tweetarray
   res.json(data); //send out the array as data to the frontend
   console.log(tweetarray)
   });
- //}); //put this back after test are done
+ }); //put this back after test are done
 
 
 
