@@ -1,5 +1,5 @@
 text {
-  font: bold 48px monospace;
+  font: bold 30px monospace;
 }
 .enter {
   fill: green;
@@ -21,3 +21,14 @@ text {
 
 
 }
+      #barchart div {
+        font-size: 0.5em;
+        font-family: sans-serif;
+
+        color: white;
+        background-color: steelblue;
+
+        text-align: right;
+        padding: 0.5em;
+        margin: 0.2em;
+      }

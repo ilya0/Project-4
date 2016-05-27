@@ -1,8 +1,8 @@
 // button_logic.js
 //************* write the data pushing from the inputbox
 /// to the arrays
-var words = [];
-var pulledajaxdata =[];
+var words = ["wordsarray"];
+var pulledajaxdata =["pulledajaxdata"];
 $(".testbutton").click(function(event){
     inputboxval = $(".textinputbox").val();
     console.log("button clicked", inputboxval);
@@ -86,12 +86,53 @@ var runinterval = setInterval(function(){
 
 
 var $inputboxval = "";
-var listvizArray =words; //data for the list visualization
+var listvizArray = words; //data for the list visualization
 var cloudvizArray=["cloudvizArray0 fine","cloudvizArray1 ok","cloudvizArray2 ok"]; // data for the text cloud vix
-var pievizArray=["pivevizArray"];   //data for the pie (thats not here yet)
+var databar = [10, 10, 10, 10, 10, 10]; //intial state of data bar
 //var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 var alphabet = listvizArray; //making the alphabet array the input array
 var counter = 0;
+
+function drawbarchart(data) {
+
+    var scale = d3.scale.linear()
+        .domain([0, 50])
+        .range([0, 100]);
+
+    var bars = d3.select("#barchart")
+        .selectAll("div")
+        .attr("id","barchart")
+        .data(data);
+
+    // enter selection
+    bars
+        .enter().append("div");
+
+    // update selection
+    bars
+        .style("width", function (d) {return scale(d) + "%";})
+        .text(function (d) {return d;});
+
+    // exit selection
+    bars
+        .exit().remove();
+};
+
+function updatebarchart() {
+    console.log("here");
+    var databar = [4, 8, 15, 16, 23, 42];
+    drawbarchart(databar);
+
+};
+function updatebarchart2() {
+    console.log("here");
+var databar = [10, 10, 10, 10, 10, 10,10, 10, 10, 10, 10, 10];
+    drawbarchart(databar);
+
+};
+
+drawbarchart(databar);
+
 
 
 
