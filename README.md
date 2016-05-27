@@ -1,15 +1,29 @@
 # ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Unit #4 Project: Phillyonce Music App
 
+![](https://github.com/ilya0/Project-4/blob/master/ERD/9.finalworking.png)
+
 ![](https://github.com/ilya0/Project-4/blob/master/ERD/1.intial%20layout.JPG)
 
 ![](https://github.com/ilya0/Project-4/blob/master/ERD/2.%20newappreimagine.JPG)
-![](http://jingabrewing.com/wp-content/uploads/2015/12/nye-wide.jpg)
-![](http://jingabrewing.com/wp-content/uploads/2015/12/nye-wide.jpg)
-![](http://jingabrewing.com/wp-content/uploads/2015/12/nye-wide.jpg)
-![](http://jingabrewing.com/wp-content/uploads/2015/12/nye-wide.jpg)
+
+![](https://github.com/ilya0/Project-4/blob/master/ERD/4.sort%20logic.JPG)
+
+![](https://github.com/ilya0/Project-4/blob/master/ERD/6.findingartistname.JPG)
+
 ![](http://jingabrewing.com/wp-content/uploads/2015/12/nye-wide.jpg)
 
+![](https://github.com/ilya0/Project-4/blob/master/ERD/7.working1.png)
+
+![](https://github.com/ilya0/Project-4/blob/master/ERD/8.codeworking2.png)
+
+
+
+
+
+
 ### Overview
+
+![](https://github.com/ilya0/Project-4/blob/master/ERD/enstein.jpg)
 
 **Concepts** 
 The concept of this app was to create a way to visualize music trends in real time. The application uses twitter for the realtime tracking of various shares of music listens and d3 for visualization.
