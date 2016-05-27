@@ -63,10 +63,11 @@ router.get('/', function(req,res){
 // get search route will show all the data in a json
 // api/getsearch to get all the searches for the thing
 router.get('/getsearch', function(req,res) {
-
+tweetarray =[];
+keeparray =[];
   //&&&&&put this back after the test are done
-  T.get('search/tweets', { q: '#nowplaying since:2015-05-23', count: 100 }, function(err, data, response) {
-    // return res.json(data)
+  T.get('search/tweets', { q: '#nowplaying by  since:2015-05-23',result_type: 'recent',lang: 'en', count: 100 }, function(err, data, response) {
+
 
     console.log("data is being got *********************************");
 
@@ -79,9 +80,10 @@ router.get('/getsearch', function(req,res) {
 
       //push the  the text from the data.statuses
     for(var i=0; i<data.statuses.length;i++){
+      console.log("data.status length" +data.statuses.length);
       tweetarray.push(data.statuses[i].text); // push the text from the item into the array set
     }
-
+     return res.json(tweetarray)
 
     for(var i=0; i<tweetarray.length; i++){ //remove all RT from array
       // "RT @ElectMusicCafe: #NowPlaying #SMASHDAT by BEAT RANGER on the #EMC #Radio Network https://t.co/rt2CSwuM7L #EDM @beat_ranger_EDM"

@@ -62,7 +62,7 @@ function runFullprogram(){
         var i =-1;
 
 var runinterval = setInterval(function(){
-  if(pulledajaxdata.length != i-1){
+  if(pulledajaxdata.length-1 != i){
         i++;
         console.log(i);
         var currentword = pulledajaxdata[i];
@@ -88,11 +88,11 @@ var runinterval = setInterval(function(){
 var $inputboxval = "";
 var listvizArray = words; //data for the list visualization
 var cloudvizArray=["cloudvizArray0 fine","cloudvizArray1 ok","cloudvizArray2 ok"]; // data for the text cloud vix
-var databar = [10, 10, 10, 10, 10, 10]; //intial state of data bar
+var databar = [0, 0, 0, 0,]; //intial state of data bar
 //var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 var alphabet = listvizArray; //making the alphabet array the input array
 var counter = 0;
-
+//draw bar chart
 function drawbarchart(data) {
 
     var scale = d3.scale.linear()
