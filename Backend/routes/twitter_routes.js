@@ -166,6 +166,21 @@ keeparray =[];
   tweetarray = keeparray;
 
 
+ keeparray = [];
+  for(var i=0; i<tweetarray.length; i++){
+    console.log("Remove all symb########");
+  pattern = new RegExp("[^a-zA-Z]", "gi")
+      keeparray.push(tweetarray[i].replace(pattern, ""));
+  }
+  tweetarray = keeparray;
+
+
+
+
+pattern = new RegExp("[^a-zA-Z]", "gi")
+
+
+
 ///send final tweetarray
 
   data = tweetarray
