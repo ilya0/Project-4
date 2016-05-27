@@ -2,15 +2,6 @@
 
 ![](https://github.com/ilya0/Project-4/blob/master/ERD/9.finalworking.png)
 
-![](https://github.com/ilya0/Project-4/blob/master/ERD/1.intial%20layout.JPG)
-
-![](https://github.com/ilya0/Project-4/blob/master/ERD/2.%20newappreimagine.JPG)
-
-![](https://github.com/ilya0/Project-4/blob/master/ERD/4.sort%20logic.JPG)
-
-![](https://github.com/ilya0/Project-4/blob/master/ERD/6.findingartistname.JPG)
-
-![](http://jingabrewing.com/wp-content/uploads/2015/12/nye-wide.jpg)
 
 ![](https://github.com/ilya0/Project-4/blob/master/ERD/7.working1.png)
 
@@ -23,7 +14,14 @@
 
 ### Overview
 
+Since the begining of time people have wondered, what music are people listening to right now?
+
 ![](https://github.com/ilya0/Project-4/blob/master/ERD/enstein.jpg)
+
+
+
+
+
 
 **Concepts** 
 The concept of this app was to create a way to visualize music trends in real time. The application uses twitter for the realtime tracking of various shares of music listens and d3 for visualization.
@@ -46,6 +44,16 @@ The concept of this app was to create a way to visualize music trends in real ti
 I first wanted to design an app for musicians to be able to be able to manage a bunch of socials, emails and music career management issues. Upon further research, one of the most applicable issues to solve was to find current music trends.
 
 I decided to create an app where I would get a live feed of searches of music in an area and visualize it with a d3 application.
+
+![](https://github.com/ilya0/Project-4/blob/master/ERD/1.intial%20layout.JPG)
+
+![](https://github.com/ilya0/Project-4/blob/master/ERD/2.%20newappreimagine.JPG)
+
+![](https://github.com/ilya0/Project-4/blob/master/ERD/4.sort%20logic.JPG)
+
+![](https://github.com/ilya0/Project-4/blob/master/ERD/6.findingartistname.JPG)
+
+
 
 After deciding what to do I started my approach on the basic framework of the app, this included the D3 visualization and the framework to access some sort of live search to feed data. 
 
