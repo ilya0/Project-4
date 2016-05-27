@@ -83,7 +83,7 @@ keeparray =[];
       console.log("data.status length" +data.statuses.length);
       tweetarray.push(data.statuses[i].text); // push the text from the item into the array set
     }
-     return res.json(tweetarray)
+     //return res.json(tweetarray)
 
     for(var i=0; i<tweetarray.length; i++){ //remove all RT from array
       // "RT @ElectMusicCafe: #NowPlaying #SMASHDAT by BEAT RANGER on the #EMC #Radio Network https://t.co/rt2CSwuM7L #EDM @beat_ranger_EDM"
