@@ -13,27 +13,32 @@
   <script src="app_logic.js" type="text/javascript" charset="utf-8" async defer></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
-
-   <div>
-     <span id = "pievizdiv">this is the pie</span>
-   </div>
-
-    <div>
-    <span id = "textclouddiv">this is the cloud</span>
-        <p></p>
-    </div>
-
-    <div>
-      <span id ="listvizdiv">this is list</span>
-    </div>
-
-    <div id="buttondiv">
+<div id="buttondiv">
         This is the button and input div
       <input type="text" class="textinputbox" placeholder="This is an inputbox"></input>
-      <button class="testbutton" type="click">Test button</button>
+      <button class="testbutton" type="click">Test manual input</button>
       <button class="refreshAjax" type="click">Refresh ajax</button>
-      <button class="fullAuto" type="click">Run Auto</button>
+      <button class="fullAuto" type="click">Run Auto with ajax pull</button>
+<button onclick="updatebarchart()">Update</button>
+<button onclick="updatebarchart2()">Update2</button>
+
+</div>
+
+<div id = "graphsdiv">
+<div id="barchart" />
+
+    <div id = "textclouddiv">
+      this is the cloud
     </div>
+
+</div>
+
+
+    <div id ="listvizdiv">
+      <span >this is list</span>
+    </div>
+
+
 
 
 <script></script>
