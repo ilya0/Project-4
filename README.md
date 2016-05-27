@@ -76,3 +76,12 @@ I developed a filter strategy to get the artist name from the various share twee
 search/tweet - searches from twitter
 auth - api key from twitter to access data
 
+
+**Future upgrades**
+- styling
+- fire hose update from twitter
+- further refinement of the sort logic
+- graph sorting
+- dynamic chart changing
+
+
