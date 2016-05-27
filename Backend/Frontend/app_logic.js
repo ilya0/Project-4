@@ -1,9 +1,12 @@
+
 // button_logic.js
 //************* write the data pushing from the inputbox
 /// to the arrays
-var words = ["wordsarray"];
+
+var words = [" "];
 var pulledajaxdata =["pulledajaxdata"];
 $(".testbutton").click(function(event){
+  barRandomizer()
     inputboxval = $(".textinputbox").val();
     console.log("button clicked", inputboxval);
     addtowords(inputboxval);
@@ -12,7 +15,7 @@ $(".testbutton").click(function(event){
 
 //adds words to the words array and pops automatically if the ammounts are more than 5
 function addtowords(word){
-  if(words.length === 5){
+  if(words.length === 7){
     words.shift();
   }
   words.push(word);
@@ -41,6 +44,7 @@ function addtowords(word){
   $(".fullAuto").click(runFullprogram); // runFullprogram is taken out because  .click needs to be reinstatiated
 //function to run the full program,
 function runFullprogram(){
+  updatebarchart()
     $(this).off(); //turn off event listener
     $.ajax({
       type: "GET",
@@ -70,6 +74,7 @@ var runinterval = setInterval(function(){
             update(words);
             console.log("current word " +currentword);
             console.log("index of pulledajaxdata "+i);
+            barRandomizer()
           }else{clearInterval(runinterval)
           }
         }, 3000);
@@ -88,7 +93,7 @@ var runinterval = setInterval(function(){
 var $inputboxval = "";
 var listvizArray = words; //data for the list visualization
 var cloudvizArray=["cloudvizArray0 fine","cloudvizArray1 ok","cloudvizArray2 ok"]; // data for the text cloud vix
-var databar = [0, 0, 0, 0,]; //intial state of data bar
+var databar = [0]; //intial state of data bar
 //var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 var alphabet = listvizArray; //making the alphabet array the input array
 var counter = 0;
@@ -130,6 +135,17 @@ var databar = [10, 10, 10, 10, 10, 10,10, 10, 10, 10, 10, 10];
     drawbarchart(databar);
 
 };
+
+function barRandomizer() {
+ var databar = [0];
+ for(var i=0;i<7;i++){
+databar.push(Math.floor(Math.random()*11))
+ }
+    drawbarchart(databar);
+
+};
+
+
 
 drawbarchart(databar);
 
@@ -199,10 +215,10 @@ d3.select(selector).style("background-color", cloudbackcolor)
 
     //Construct the word cloud's SVG element
     var svg = d3.select(selector).append("svg")
-        .attr("width", 500)
-        .attr("height", 500)
+        .attr("width", 1000)
+        .attr("height", 300)
         .append("g")
-        .attr("transform", "translate(250,250)");
+        .attr("transform", "translate(500,150)");
 
 
     //Draw the word cloud
@@ -248,7 +264,7 @@ d3.select(selector).style("background-color", cloudbackcolor)
         //The outside world will need to call this function, so make it part
         // of the wordCloud return value.
         update: function(words) {
-            d3.layout.cloud().size([500, 500])
+            d3.layout.cloud().size([1000, 300])
                 .words(words)
                 .padding(5)
                 .rotate(function() { return ~~(Math.random() * 2) * 90; })
