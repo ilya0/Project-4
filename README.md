@@ -1,6 +1,11 @@
 # ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Unit #4 Project: Phillyonce Music App
-[Unit #4 Project: Phillyonce Music App - Heroku link](https://obscure-tundra-48009.herokuapp.com/)
+
  _(beginner's reference for understanding music trends)_
+
+[App link](https://obscure-tundra-48009.herokuapp.com/)
+
+[Trello Link](https://trello.com/b/sIEFnZgx/project-4)
+
 
 
 ![](https://github.com/ilya0/Project-4/blob/master/ERD/9.finalworking.png)
@@ -12,9 +17,6 @@
 
 
 
-
-
-
 ### Overview
 
 Since the begining of time people have wondered, what music are people listening to right now?
@@ -22,14 +24,10 @@ Since the begining of time people have wondered, what music are people listening
 ![](https://github.com/ilya0/Project-4/blob/master/ERD/enstein.jpg)
 
 
-
-
-
-
-**Concepts** 
+## Concepts
 The concept of this app was to create a way to visualize music trends in real time. The application uses twitter for the realtime tracking of various shares of music listens and d3 for visualization.
 
-**Technologies**
+## Technologies
 
     * Node and NPM
 	    * emoji-strip
@@ -43,7 +41,13 @@ The concept of this app was to create a way to visualize music trends in real ti
     * ajax
     * express
 
-**Approach**
+ **Routes**
+search/tweet - searches from twitter
+auth - api key from twitter to access data
+
+
+
+## Approach
 I first wanted to design an app for musicians to be able to be able to manage a bunch of socials, emails and music career management issues. Upon further research, one of the most applicable issues to solve was to find current music trends.
 
 I decided to create an app where I would get a live feed of searches of music in an area and visualize it with a d3 application.
@@ -65,23 +69,29 @@ I soon found that live searches are hard to come by and I decided that that best
 I developed a filter strategy to get the artist name from the various share tweets and also, I developed graphs and visualizations to display the data.
 
 
-**Major Issues**
+## Major Issues
 - no live seaches that are easily accessible to the public
 - 100 limit on twitter searches
 - lots of trash on twitter searches
 - hard to parse good artist info
 - shares are volentary, data is not accurate
 
-**Routes**
-search/tweet - searches from twitter
-auth - api key from twitter to access data
 
 
-**Future upgrades**
+## Future upgrades
 - styling
 - fire hose update from twitter
 - further refinement of the sort logic
 - graph sorting
 - dynamic chart changing
+
+## Authors
+
+* **Ilya Osovets** -- [ilya0](https://github.com/ilya0)
+
+## Acknowledgments
+
+* WDI 
+* WDI Class
 
 
