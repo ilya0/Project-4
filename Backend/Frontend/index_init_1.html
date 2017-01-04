@@ -5,48 +5,45 @@
 
 <body>
 
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <script src="https://d3js.org/d3.v3.min.js"></script>
-  <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
-  <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
-  <script src="app_logic.js" type="text/javascript" charset="utf-8" async defer></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+    <script src="app_logic.js" type="text/javascript" charset="utf-8" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<!-- Title -->
+  <div id="title" >
+    <h2>
+     Phillyonce Music app - THE FUTURE OF MUSIC AND CODE
+    </h2>
+  </div>
 
 
-<div id="title" >
-<h2>
- Philyonce Music app - THE FUTURE OF MUSIC AND CODE
- </h2>
-</div>
+<!-- button box -->
 
-<div id="buttondiv">
-        Manual input block:
+  <div id="buttondiv">
+      Manual input block:
       <input type="text" class="textinputbox" placeholder="This is an inputbox"></input>
       <button class="testbutton" type="click">Test manual input</button>
       <button class="refreshAjax" type="click">Refresh ajax</button>
       <button class="fullAuto" type="click">Run Auto with ajax pull</button>
-<button onclick="updatebarchart()">Update</button>
-<button onclick="updatebarchart2()">Update2</button>
-
-</div>
-
-<div id = "graphsdiv">
-<div id="barchart" />
-
-    <div id = "textclouddiv">
-
-    </div>
-
-</div>
+      <button onclick="updatebarchart()">Update</button>
+      <button onclick="updatebarchart2()">Update2</button>
+  </div>
 
 
-    <div id ="listvizdiv">
-      <span ></span>
-    </div>
+
+  <div id = "graphsdiv"></div>
+  <div id = "barchart"></div>
+  <div id = "textclouddiv"></div>
 
 
 
 
-<script></script>
+
+      <div id ="listvizdiv">
+        <span></span>
+      </div>
 
 </body>
