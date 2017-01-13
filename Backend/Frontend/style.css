@@ -41,6 +41,12 @@ h2 {
         margin: 0.2em;
       }
 
+/*div inline*/
+.inline { float:left; }
+.clearBoth { clear:both; }
+
+
+
 /*Rounded on/off switch*/
 
 /* The switch - the box around the slider */

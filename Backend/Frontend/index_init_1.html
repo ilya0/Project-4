@@ -13,6 +13,13 @@
   <script src="onswitchlogic.js" type="text/javascript" charset="utf-8" async defer></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
+<!-- Bootstrap CDN -->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<!-- Font awesome for moving icons -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
 <div id="title" >
   <h2>
@@ -34,13 +41,18 @@
   <button onclick="updatebarchart2()">Update2</button>
   <div class = "testtext"> Test Text</div>
 
-<div class="onoffswitch" >
+<i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+<span class="sr-only">Loading...</span>
+
+<div class="onoffswitch">
     <input type="checkbox" onclick="testfunction()" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" unchecked>
     <label class="onoffswitch-label" for="myonoffswitch">
         <span class="onoffswitch-inner"></span>
         <span class="onoffswitch-switch"></span>
     </label>
 </div>
+<i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+<span class="sr-only">Loading...</span>
 
 
 <!-- This is where the graphing starts -->
