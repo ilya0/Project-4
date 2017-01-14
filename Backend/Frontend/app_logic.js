@@ -97,6 +97,10 @@ var databar = [0]; //intial state of data bar
 //var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 var alphabet = listvizArray; //making the alphabet array the input array
 var counter = 0;
+
+
+
+
 //draw bar chart
 function drawbarchart(data) {
 
