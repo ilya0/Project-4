@@ -1,6 +1,6 @@
 .grad{
-    text-align: center;
-    margin-top: 5%;
+  text-align: center;
+  margin-top: 5%;
   display: table;
   margin: 0 auto;
   font-family: "Roboto Slab";
@@ -44,11 +44,11 @@ text {
 }
 
 #pievizdiv{
-  width:500px;
+  width:100%;
 
 }
 #textclouddiv{
-  width: 500px;
+  width: 100%;
 
 }
 
@@ -59,25 +59,41 @@ text {
     border-color: white;
    margin: 7px;
 }
+
 #listvizdiv{
-  width: 960px;
+  width: 100%;
 }
-      #barchart div {
-        font-size: 0.5em;
-        font-family: sans-serif;
 
-        color: white;
-        background-color: steelblue;
+#barchart div {
+  font-size: 0.5em;
+  font-family: sans-serif;
 
-        text-align: right;
-        padding: 0.5em;
-        margin: 0.2em;
-      }
+  color: white;
+  background-color: steelblue;
+
+  text-align: right;
+  padding: 0.5em;
+  margins: 0.2em;
+}
 
 /*div inline*/
 i{
 display: inline;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*Rounded on/off switch*/
