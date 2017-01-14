@@ -215,8 +215,8 @@ d3.select(selector).style("background-color", cloudbackcolor)
 
     //Construct the word cloud's SVG element
     var svg = d3.select(selector).append("svg")
-        .attr("width", 100) //original is 1000
-        .attr("height", 100) // 300
+        .attr("width", 790) //original is 1000
+        .attr("height", 300) // 300
         .append("g")
         .attr("transform", "translate(500,150)");
 
@@ -312,7 +312,7 @@ function showNewWords(vis, i) {
 }
 
 //Create a new instance of the word cloud visualisation.
-var myWordCloud = wordCloud('body');
+var myWordCloud = wordCloud('#wordclouddiv');
 
 //Start cycling through the demo data
 showNewWords(myWordCloud); // this runs the whole update
