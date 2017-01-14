@@ -1,3 +1,21 @@
+h1 {
+    text-align: center;
+    margin-top: 5%;
+
+}
+h2 {
+    text-align: center;
+}
+
+/*test class to see all the outlines of things*/
+.testoutline{
+     border-style: solid;
+    /*border-width: 2px;*/
+    border-color: white;
+   /*margin: 7px;*/
+}
+
+
 text {
   font: bold 20px monospace;
 }
@@ -17,9 +35,7 @@ text {
 
 }
 
-h2 {
-    text-align: center;
-}
+
 #title{
      border-style: solid;
     border-width: 2px;
@@ -146,3 +162,11 @@ input:checked + .slider:before {
     right: 0px;
 }
 }
+
+
+
+
+
+
+
+
