@@ -1,3 +1,7 @@
+body{
+  background-color: purple;
+}
+
 .grad{
   text-align: center;
   margin-top: 5%;
@@ -78,7 +82,7 @@ text {
 
 /*div inline*/
 i{
-display: inline;
+display: inline-block;
 }
 
 
