@@ -42,9 +42,9 @@ h2 {
       }
 
 /*div inline*/
-.inline { float:left; }
-.clearBoth { clear:both; }
-
+i{
+display: inline;
+}
 
 
 /*Rounded on/off switch*/
