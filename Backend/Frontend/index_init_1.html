@@ -101,22 +101,31 @@ Start left side bar
 
 <!-- Main Div that holds all the nested diva -->
     <div class="col-sm-8 text-left testoutline">
-      <h1>Center column</h1>
+      <h1>Center column </h1>
 
 
-<!-- 1st nested div wit the button and rotating --> onclick="testfunction()"
+    <div class="col-sm-8 text-left testoutline">
+
+    <div class="col-sm-8 text-left testoutline"></div>
+      <div class="col-sm-2 text-left testoutline">
+            <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+       </div>
+    </div>
+
+
+<!-- 1st nested div wit the button and rotating -->
       <div class="col-sm-12 text-left testoutline">
 
 
         <!-- animated switch button -->
 <div class="onoffswitch">
-    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+    <input type="checkbox" name="onoffswitch" onclick="testfunction()" class="onoffswitch-checkbox" id="myonoffswitch" unchecked>
     <label class="onoffswitch-label" for="myonoffswitch">
         <span class="onoffswitch-inner"></span>
         <span class="onoffswitch-switch"></span>
     </label>
 </div>
-<i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+
         <!-- revolving icon -->
 
         </div>

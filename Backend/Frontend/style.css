@@ -1,7 +1,9 @@
 body{
   background-color: purple;
 }
-
+.rightalign{
+  text-align: right;
+}
 .grad{
   text-align: center;
   margin-top: 5%;
@@ -15,6 +17,21 @@ body{
   -webkit-text-fill-color: transparent;
   line-height: 65px;
 }
+
+/*Icon style*/
+.fa{
+    display:inline-block;
+    font-size: 40px;
+    line-height: 50px;
+    background-color:transparent;
+    color:white;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+
 
 h1 {
     text-align: center;
@@ -83,6 +100,7 @@ text {
 /*div inline*/
 i{
 display: inline-block;
+align-content: center;
 }
 
 
