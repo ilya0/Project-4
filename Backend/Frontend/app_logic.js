@@ -97,10 +97,6 @@ var databar = [0]; //intial state of data bar
 //var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 var alphabet = listvizArray; //making the alphabet array the input array
 var counter = 0;
-
-
-
-
 //draw bar chart
 function drawbarchart(data) {
 
@@ -219,8 +215,8 @@ d3.select(selector).style("background-color", cloudbackcolor)
 
     //Construct the word cloud's SVG element
     var svg = d3.select(selector).append("svg")
-        .attr("width", 1000)
-        .attr("height", 300)
+        .attr("width", 100) //original is 1000
+        .attr("height", 100) // 300
         .append("g")
         .attr("transform", "translate(500,150)");
 
