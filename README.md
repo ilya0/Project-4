@@ -85,6 +85,8 @@ I developed a filter strategy to get the artist name from the various share twee
 - graph sorting
 - dynamic chart changing
 
+Updating Jan 12 2017
+
 ## Authors
 
 * **Ilya Osovets** -- [ilya0](https://github.com/ilya0)
