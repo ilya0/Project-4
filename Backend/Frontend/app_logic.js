@@ -211,7 +211,7 @@ function update(data) {
 
 // Encapsulate the word cloud functionality
 function wordCloud(selector) {
-  cloudbackcolor = d3.rgb("#ff3333");
+  cloudbackcolor = d3.rgb("#b30000");
 d3.select(selector).style("background-color", cloudbackcolor)
     var fill = d3.scale.category20();
 
