@@ -17,14 +17,23 @@
 
 
 
-### Overview
+### Overview - About the project
 
-Since the begining of time people have wondered, what music are people listening to right now?
+Phillyonce is the experiment to visualize real time, music listening, searching and sharing, in an interesting way to see what would happen when you mix music data and web development.
+
+### The Process
+Phillyonce was a theoretical challenge, due to the technical constraints unforeseen as well as logical forethough that needed to be undertaken.
+
+Currently I never seen anything like Phillyonce. Phillyonce tries to realize almost real time interactions of music data. While other online visualizations use pre-existing data to graph movement. Phillyonce creates instant pull of data then visualizes it in almost seamless real-time.
+
+There were many challenges with this project, including the frontside visualizations. The frontside visualizations were created with D3.js, CSS and HTML. One of the biggest challenges was to logically organize the data to visualize it in a way where it would make sense to the casual user. Another significant and unforseen issue was, streaming data. Initially, I thought there would be some sort of way to find out what people are searching for, through querying some sort of search engine. But, upon countless hours of searching, I came up empty handed. I ended up resorting to pulling data from twitter. I then painstakingly had to come up with logic to sort, pull, parse, detect and clean tweets for mentions of artists users are listening to. This would be used as my data stream.
+
 
 ![](https://github.com/ilya0/Project-4/blob/master/ERD/enstein.jpg)
 
 
 ## Concepts
+
 The concept of this app was to create a way to visualize music trends in real time. The application uses twitter for the realtime tracking of various shares of music listens and d3 for visualization.
 
 ## Technologies
@@ -40,6 +49,8 @@ The concept of this app was to create a way to visualize music trends in real ti
     * jquery
     * ajax
     * express
+    * Heroku
+    * Bootstrap
 
  **Routes**
 search/tweet - searches from twitter
@@ -70,22 +81,24 @@ I developed a filter strategy to get the artist name from the various share twee
 
 
 ## Major Issues
-- no live seaches that are easily accessible to the public
-- 100 limit on twitter searches
-- lots of trash on twitter searches
-- hard to parse good artist info
-- shares are volentary, data is not accurate
 
+- SVG is oversized
+- Maybe some more styling
+- dynamic pull backend
 
 
 ## Future upgrades
-- styling
+- More styling
 - fire hose update from twitter
 - further refinement of the sort logic
 - graph sorting
 - dynamic chart changing
 
-Updating Jan 12 2017
+
+
+
+Updates:
+Jan 15 2017
 
 ## Authors
 
