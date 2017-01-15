@@ -32,7 +32,7 @@ function addtowords(word){
            //context: document.body
           }).done(function(data){
               givemedata = data;
-              console.log("ajax data is:")
+              console.log("ajax data is:");
               console.log(data);
 
            });
@@ -40,11 +40,12 @@ function addtowords(word){
 
         });
 
+
 //fullauto mode pulling from api
   $(".fullAuto").click(runFullprogram); // runFullprogram is taken out because  .click needs to be reinstatiated
 //function to run the full program,
 function runFullprogram(){
-  updatebarchart()
+  updatebarchart();
     $(this).off(); //turn off event listener
     $.ajax({
       type: "GET",
@@ -74,8 +75,8 @@ var runinterval = setInterval(function(){
             update(words);
             console.log("current word " +currentword);
             console.log("index of pulledajaxdata "+i);
-            barRandomizer()
-          }else{clearInterval(runinterval)
+            barRandomizer();
+          }else{clearInterval(runinterval);
           }
         }, 3000);
 
@@ -139,7 +140,7 @@ var databar = [10, 10, 10, 10, 10, 10,10, 10, 10, 10, 10, 10];
 function barRandomizer() {
  var databar = [0];
  for(var i=0;i<7;i++){
-databar.push(Math.floor(Math.random()*11))
+databar.push(Math.floor(Math.random()*11));
  }
     drawbarchart(databar);
 
@@ -215,10 +216,10 @@ d3.select(selector).style("background-color", cloudbackcolor)
 
     //Construct the word cloud's SVG element
     var svg = d3.select(selector).append("svg")
-        .attr("width", 790) //original is 1000
+        .attr("width", 550) //original is 1000
         .attr("height", 300) // 300
         .append("g")
-        .attr("transform", "translate(500,150)");
+        .attr("transform", "translate(200,150)");
 
 
     //Draw the word cloud
