@@ -217,8 +217,8 @@ d3.select(selector).style("background-color", cloudbackcolor)
 
     //Construct the word cloud's SVG element
     var svg = d3.select(selector).append("svg")
-        .attr("width", 550) //original is 1000
-        .attr("height", 300) // 300
+        .attr("width", 800) //original is 1000
+        .attr("height", 600) // 300
         .append("g")
         .attr("transform", "translate(200,150)");
 
