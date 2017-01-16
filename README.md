@@ -11,7 +11,7 @@
 ![](https://github.com/ilya0/Project-4/blob/master/ERD/9.finalworking.png)
 
 
-![](https://github.com/ilya0/Project-4/blob/master/ERD/7.working1.png)
+<!-- ![](https://github.com/ilya0/Project-4/blob/master/ERD/7.working1.png) -->
 
 ![](https://github.com/ilya0/Project-4/blob/master/ERD/8.codeworking2.png)
 
